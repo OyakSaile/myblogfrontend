@@ -9,6 +9,7 @@ export const Container = styled.div<{ colorBG: string }>`
   gap: 1rem;
   height: 500px;
   transition: all 0.2s ease;
+  position: relative;
 
   &:hover {
     filter: brightness(0.8);
@@ -26,4 +27,10 @@ export const Container = styled.div<{ colorBG: string }>`
   > p {
     font-size: 1rem;
   }
+`
+
+export const LinkContainer = styled.div`
+  position: absolute;
+  left: 1rem;
+  bottom: 1rem;
 `

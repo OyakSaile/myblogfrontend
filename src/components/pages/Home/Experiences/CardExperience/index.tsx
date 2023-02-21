@@ -1,7 +1,7 @@
-import { Container } from './styles'
-import Image from 'next/image'
-import CspTechLogo from '@icons/csp-tech.svg'
-import { Link } from 'phosphor-react'
+import { Container, LinkContainer } from "./styles"
+import Image from "next/image"
+import CspTechLogo from "@icons/csp-tech.svg"
+import { Link } from "phosphor-react"
 
 interface CardExperienceProps {
   logo: any
@@ -19,7 +19,7 @@ export const CardExperience: React.FC<CardExperienceProps> = ({
   isCurrentJob,
   endDate,
   occupation,
-  colorBG = '#232323',
+  colorBG = "#232323",
   occupationDescription,
 }) => {
   return (
@@ -32,7 +32,9 @@ export const CardExperience: React.FC<CardExperienceProps> = ({
 
       <p>{occupationDescription}</p>
 
-      <Link size={40} />
+      <LinkContainer>
+        <Link size={40} />
+      </LinkContainer>
     </Container>
   )
 }

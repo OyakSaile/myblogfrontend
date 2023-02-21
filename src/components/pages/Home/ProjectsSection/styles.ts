@@ -1,3 +1,4 @@
+import { colors } from "@styles/themes/colors"
 import styled from "styled-components"
 
 export const Container = styled.div`
@@ -10,6 +11,12 @@ export const Container = styled.div`
       margin-bottom: 4.4375rem;
       color: white;
       font-size: 4rem;
+    }
+    > h3 {
+      color: ${colors.white};
+    }
+    > p {
+      color: ${colors.white};
     }
   }
 `

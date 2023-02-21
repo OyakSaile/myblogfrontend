@@ -1,9 +1,9 @@
 import Head from "next/head"
-import Image from "next/image"
 import { Container } from "@styles/pages/HomeStyle"
 import { HeroSection } from "@components/pages/Home/HeroSection"
 import { Experiences } from "@components/pages/Home/Experiences"
 import { ProjectsSection } from "@components/pages/Home/ProjectsSection"
+import { OthersProjects } from "@components/pages/Home/OthersProjects"
 
 export default function Home() {
   return (
@@ -14,6 +14,7 @@ export default function Home() {
       <HeroSection />
       <Experiences />
       <ProjectsSection />
+      <OthersProjects />
     </Container>
   )
 }

@@ -72,6 +72,10 @@ export const SecondFeatureProject = styled.div`
         filter: brightness(0.8);
         cursor: pointer;
       }
+
+      img {
+        object-fit: cover;
+      }
     }
 
     position: relative;

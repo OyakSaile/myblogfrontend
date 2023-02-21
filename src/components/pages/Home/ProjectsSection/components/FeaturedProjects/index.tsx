@@ -10,7 +10,12 @@ export const FeaturedProjects = () => {
       <LeftContainer>
         <div>
           <a href="https://ritasaude.com.br/" target="_blank" rel="noreferrer">
-            <Image src="/rita-saude.png" alt="Rita Saúde" fill />
+            <Image
+              src="/rita-saude.png"
+              alt="Rita Saúde"
+              fill
+              style={{ objectFit: "cover" }}
+            />
           </a>
         </div>
         <div>
@@ -28,7 +33,12 @@ export const FeaturedProjects = () => {
       <SecondFeatureProject>
         <div>
           <a href="https://lab-rj.com.br/" target="_blank" rel="noreferrer">
-            <Image src="/lab-rj.png" alt="Lab-RJ" fill />
+            <Image
+              src="/lab-rj.png"
+              alt="Lab-RJ"
+              fill
+              style={{ objectFit: "cover" }}
+            />
           </a>
         </div>
         <div>

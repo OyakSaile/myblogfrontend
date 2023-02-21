@@ -1,8 +1,8 @@
-import Head from "next/head";
-import Image from "next/image";
-import { Container, Content, DivImage } from "@styles/pages/HomeStyle";
-import { MyInformations } from "@components/pages/HomeComponents/MyInformations";
-import { SideBar } from "@components/SideBar";
+import Head from 'next/head'
+import Image from 'next/image'
+import { Container } from '@styles/pages/HomeStyle'
+import { HeroSection } from '@components/pages/Home/HeroSection'
+import { Experiences } from '@components/pages/Home/Experiences'
 
 export default function Home() {
   return (
@@ -10,18 +10,9 @@ export default function Home() {
       <Head>
         <title>Kayo Elias - Full-Stack Developer</title>
       </Head>
-      <SideBar />
-      <Content>
-        <MyInformations />
-        <DivImage>
-          <Image
-            quality={100}
-            src="/kayoelias.png"
-            alt="Kayo Elias - FullStack Developer"
-            fill
-          />
-        </DivImage>
-      </Content>
+      <HeroSection />
+
+      <Experiences />
     </Container>
-  );
+  )
 }

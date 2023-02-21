@@ -82,15 +82,18 @@ export const GroupButtons = styled.div`
   display: flex;
   align-items: center;
   gap: 1rem;
-  > button {
-    min-width: 161px;
-    height: 49px;
-    border-radius: 25px;
-    background: black;
-    color: white;
-    transition: all 0.2s;
-    &:hover {
-      filter: brightness(0.2);
+
+  > a {
+    > button {
+      min-width: 161px;
+      height: 49px;
+      border-radius: 25px;
+      background: black;
+      color: white;
+      transition: all 0.2s;
+      &:hover {
+        filter: brightness(0.2);
+      }
     }
   }
 

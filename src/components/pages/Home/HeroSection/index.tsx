@@ -1,17 +1,49 @@
 import Image from "next/image"
 import { Container, GroupButtons } from "./styles"
 import { InstagramLogo, LinkedinLogo, Download } from "phosphor-react"
+import { useConvertImageFromSanity } from "src/hooks/useConvertImageFromSanity"
 
-export const HeroSection = () => {
+interface HeroSectionProps {
+  greetingText: string
+  description: string
+  profilePicture: {
+    _type: string
+    asset: {
+      _ref: string
+      _type: string
+    }
+  }
+  pdfUrl: string
+  socialnetwork: {
+    _key: string
+    _type: string
+    icon: {
+      _type: string
+      asset: {
+        _ref: string
+        _type: string
+      }
+    }
+    url: string
+  }[]
+}
+
+export const HeroSection: React.FC<HeroSectionProps> = ({
+  description,
+  pdfUrl,
+  greetingText,
+  profilePicture,
+  socialnetwork,
+}) => {
+  const { urlFor } = useConvertImageFromSanity()
+  const teste = urlFor(socialnetwork[0].icon.asset._ref)
+
   return (
     <div className="container">
       <Container>
         <div>
-          <h1>Hey I&apos;am Kayo Elias, a full-stack developer</h1>
-          <h2>
-            A boy who&apos;s passionate about create new features and do all the
-            crazy ideas!
-          </h2>
+          <h1>{greetingText}</h1>
+          <h2>{description}</h2>
 
           <ul>
             <li>
@@ -52,33 +84,33 @@ export const HeroSection = () => {
           </ul>
 
           <GroupButtons>
-            <button>
-              <Download /> Resume
-            </button>
+            <a download target="_blank" href={pdfUrl} rel="noreferrer">
+              <button>
+                <Download /> Resume
+              </button>
+            </a>
             <ul>
-              <li>
-                <a
-                  href="https://www.instagram.com/kayoskada/"
-                  target="_blank"
-                  rel="noreferrer"
-                >
-                  <InstagramLogo size={24} />
-                </a>
-              </li>
-              <li>
-                <a
-                  target="_blank"
-                  href="https://www.linkedin.com/in/kayoeliasgverdan/"
-                  rel="noreferrer"
-                >
-                  <LinkedinLogo size={24} />
-                </a>
-              </li>
+              {socialnetwork.map(({ _key, _type, icon, url }) => (
+                <li key={_key}>
+                  <a target="_blank" href={url} rel="noreferrer">
+                    <Image
+                      src={`${urlFor(icon.asset._ref)}`}
+                      alt="teste"
+                      width={24}
+                      height={24}
+                    />
+                  </a>
+                </li>
+              ))}
             </ul>
           </GroupButtons>
         </div>
         <div>
-          <Image src="/kayoelias.jpeg" fill alt="KAYO eLIAS" />
+          <Image
+            src={`${urlFor(profilePicture.asset._ref)}`}
+            fill
+            alt="KAYO eLIAS"
+          />
         </div>
       </Container>
     </div>

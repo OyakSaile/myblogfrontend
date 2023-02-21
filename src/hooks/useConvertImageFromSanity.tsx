@@ -1,22 +1,18 @@
-import imageUrlBuilder from "@sanity/image-url";
-import { clientConfig } from "../services/sanityClientConfig";
+import imageUrlBuilder from "@sanity/image-url"
+import { clientConfig } from "../services/sanityClientConfig"
 
 interface imageConverter {
-  _type: string;
-  asset: {
-    _ref: string;
-    _type: string;
-  };
+  source: string
 }
 
 export function useConvertImageFromSanity() {
-  const builder = imageUrlBuilder(clientConfig);
+  const builder = imageUrlBuilder(clientConfig)
 
-  const imageConverter = (source: imageConverter) => {
-    return builder.image(source);
-  };
+  function urlFor(source: string) {
+    return builder.image(source).format("webp").url()
+  }
 
   return {
-    imageConverter,
-  };
+    urlFor,
+  }
 }

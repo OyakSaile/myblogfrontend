@@ -26,6 +26,7 @@ interface MyInformations {
         _type: string
       }
     }
+    pdfUrl: string
     job: string
     jobDescription: string
     name: string
@@ -45,9 +46,7 @@ interface MyInformations {
   }
 }
 
-export default function Home({ myInformations }: any) {
-  console.log(myInformations)
-
+export default function Home({ myInformations }: MyInformations) {
   return (
     <Container>
       <Head>
@@ -68,7 +67,12 @@ export default function Home({ myInformations }: any) {
 }
 
 export async function getStaticProps() {
-  const myInformations = await clientConfig.fetch(`*[_type == "aboutYou"][0]`)
+  const myInformations = await clientConfig.fetch(`*[_type == "aboutYou"][0] {
+    ...,
+      "pdfUrl": resume.asset->url,
+  }
+  
+  `)
 
   return {
     props: {

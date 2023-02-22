@@ -36,7 +36,6 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
   socialnetwork,
 }) => {
   const { urlFor } = useConvertImageFromSanity()
-  const teste = urlFor(socialnetwork[0].icon.asset._ref)
 
   return (
     <div className="container">
@@ -90,7 +89,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
               </button>
             </a>
             <ul>
-              {socialnetwork.map(({ _key, _type, icon, url }) => (
+              {socialnetwork?.map(({ _key, _type, icon, url }) => (
                 <li key={_key}>
                   <a target="_blank" href={url} rel="noreferrer">
                     <Image
